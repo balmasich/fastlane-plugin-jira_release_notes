@@ -20,7 +20,7 @@ module Fastlane
         issues_types = issues.map { |i| i.issuetype.name }.uniq().sort()
         notes = [];
         issues_types.each do |i|
-          issues_list = sorted.find_all { |z| z.issuetype.name == i }.map { |z| "* [#{z.key}](#{url}/browse/#{z.key}) - #{z.summary}" }
+          issues_list = sorted.find_all { |z| z.issuetype.name == i }.map { |z| "* <#{url}/browse/#{z.key}|#{z.key}> - #{z.summary}" }
           notes = notes.concat([ "*#{i}*" ], issues_list)
         end
         notes.join("\n")
