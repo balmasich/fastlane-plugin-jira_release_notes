@@ -15,6 +15,16 @@ module Fastlane
           "[<a href='#{url}/browse/#{i.key}'>#{i.key}</a>] - #{summary}"
         end.join("\n")
       end
+      def self.slack_format(issues, url)
+        sorted = issues.sort_by { |i| i.key }
+        issues_types = issues.map { |i| i.issuetype.name }.uniq().sort()
+        notes = [];
+        issues_types.each do |i|
+          issues_list = sorted.find_all { |z| z.issuetype.name == i }.map { |z| "* [#{z.key}](#{url}/browse/#{z.key}) - #{z.summary}" }
+          notes = notes.concat([ "*#{i}*" ], issues_list)
+        end
+        notes.join("\n")
+      end
     end
   end
 end

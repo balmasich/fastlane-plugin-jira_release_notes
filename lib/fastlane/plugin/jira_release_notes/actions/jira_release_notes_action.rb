@@ -53,6 +53,8 @@ module Fastlane
           Helper::JiraReleaseNotesHelper.plain_format(issues)
         when "html"
           Helper::JiraReleaseNotesHelper.html_format(issues, params[:url])
+        when "slack"
+          Helper::JiraReleaseNotesHelper.slack_format(issues, params[:url])
         else
           issues
         end
