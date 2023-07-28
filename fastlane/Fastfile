@@ -19,6 +19,14 @@ lane :test do
     version:  "0.1",
     foramt: "html"
   )
+  message = jira_release_notes(
+    username: "me",
+    password: "123",
+    url:      "https://jira.example.com",
+    project:  "OX",
+    version:  "0.1",
+    foramt: "slack"
+  )
   slack(
     message: message
   )

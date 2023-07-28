@@ -130,7 +130,7 @@ module Fastlane
                                        end),
           FastlaneCore::ConfigItem.new(key: :format,
                                        env_name: "FL_JIRA_RELEASE_NOTES_FORMAT",
-                                       description: "Format text. Plain, html or none",
+                                       description: "Format text. Plain, html or slack or none",
                                        sensitive: true,
                                        default_value: "plain"),
           FastlaneCore::ConfigItem.new(key: :max_results,
